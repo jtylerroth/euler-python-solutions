@@ -2,6 +2,8 @@
 #
 # What is the 10 001st prime number?
 
+import math
+
 def getPrimes():
 	# Stolen from Euler #3, but properly yields the first primes
 	primes = [2,3]
@@ -13,7 +15,13 @@ def getPrimes():
 	while True:
 		num += 2
 		isPrime = True
+
+		limit = math.sqrt(num)
+
 		for prime in primes:
+			if prime > limit:
+				break
+
 			if num % prime == 0:
 				isPrime = False
 				break
